@@ -1,0 +1,41 @@
+@import '../../../../styles/base/variables';
+
+.footer {
+	margin-top: auto;
+	background-color: #f3eee8;
+	padding-top: 45px;
+	padding-bottom: 70px;
+	.footerContainer {
+		display: flex;
+		justify-content: center;
+
+		.contentWrap {
+			display: flex;
+			justify-content: space-evenly;
+			width: 1000px;
+			ul {
+				li {
+					list-style: none;
+					text-transform: capitalize;
+					font-family: $mundial;
+					font-size: 10px;
+					color: #7b7a77;
+
+					h4 {
+						font-size: 12px;
+						font-family: mundialBold;
+						padding-bottom: 15px;
+					}
+				}
+
+				li:not(:last-child) {
+					padding-bottom: 8px;
+				}
+			}
+
+			ul:not(:last-child) {
+				padding-right: 25px;
+			}
+		}
+	}
+}
