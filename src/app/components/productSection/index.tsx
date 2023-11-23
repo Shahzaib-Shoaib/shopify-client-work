@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ProductData } from '@/app/types';
@@ -12,7 +12,9 @@ type props = {
 };
 
 const ProductSection = ({ data, collectionTitle }: props) => {
+
 	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
 	const renderProducts = () => {
 		return (
 			!!data &&
@@ -28,20 +30,24 @@ const ProductSection = ({ data, collectionTitle }: props) => {
 					<li
 						key={id}
 						className={styles.listItem}
-						onMouseEnter={() => setHoveredIndex(index)}
+						onMouseEnter={function hovered() {
+
+							setTimeout(() => {
+								setHoveredIndex(index);
+
+							}, 225);
+						}}
 						onMouseLeave={() => setHoveredIndex(null)}
 					>
 						<Link
-							href={`${
-								collectionTitle && collectionTitle.toLocaleLowerCase()
-							}/product/${handle}`}
+							href={`${collectionTitle && collectionTitle.toLocaleLowerCase()
+								}/product/${handle}`}
 						>
 							<div className={styles.imageWrap}>
 								<Image
 									src={imageSrc}
 									alt={handle}
 									fill
-									style={{ objectFit: 'cover' }}
 									priority
 								/>
 							</div>
