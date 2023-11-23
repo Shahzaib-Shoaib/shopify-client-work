@@ -37,7 +37,13 @@ const ProductSection = ({ data, collectionTitle }: props) => {
 
 							}, 225);
 						}}
-						onMouseLeave={() => setHoveredIndex(null)}
+						onMouseLeave={function unhovered() {
+
+							setTimeout(() => {
+								setHoveredIndex(null);
+
+							}, 225);
+						}}
 					>
 						<Link
 							href={`${collectionTitle && collectionTitle.toLocaleLowerCase()
