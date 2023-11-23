@@ -125,7 +125,6 @@ export async function getAllProducts() {
   `;
 
   const response = await ShopifyData(query);
-  console.log(response);
   const allProducts = response
     ? response.data.products.edges.map((product) => {
         const { id, title, handle, priceRange, images } = product.node;
